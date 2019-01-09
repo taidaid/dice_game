@@ -1,0 +1,85 @@
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background-color: darkred;
+}
+
+.border {
+  border-radius: 15px;
+  border-style: solid;
+  background-color: lightblue;
+}
+
+#banner {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+#game {
+  background-color: green;
+  flex-wrap: wrap;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+.column {
+  display: flex;
+
+  flex-flow: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.grow {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.tc {
+  text-align: center;
+}
+
+.space-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.min-h70 {
+  min-height: 70%;
+}
+
+.min-h20 {
+  min-height: 20%;
+}
+
+.min-h10 {
+  min-height: 10%;
+}
+
+.min-h5 {
+  min-height: 10%;
+}
+
+.min-h50 {
+  min-height: 50%;
+}
