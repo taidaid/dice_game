@@ -1,10 +1,17 @@
 const rollDice = () => Math.floor(Math.random() * 5 + 1);
 
 document.getElementById("banner").addEventListener("click", () => {
-  let i = 1;
+  const dice = [...document.getElementsByClassName("dice")];
 
-  for (die of document.getElementsByClassName("dice")) {
-    switch (rollDice()) {
+  console.log(dice);
+
+  let i = -1;
+  for (let die of dice) {
+    const diceRoll = rollDice();
+    die.alt = "" + diceRoll;
+    console.log(die);
+
+    switch (diceRoll) {
       case 1:
         die.src = `../dice images/dice1.jpg`;
         break;
@@ -27,7 +34,35 @@ document.getElementById("banner").addEventListener("click", () => {
         die.src = `../dice images/dice1.jpg`;
     }
     i++;
+    if (i === dice.length - 1) {
+      for (die of dice) {
+        // find high score
+        const highScore = Math.max(...dice.map(die => die.alt));
+        // if multiple dice have high score, then return the id of each die
+        //  and display all player names as a tie
+        // if only one die has high score, then display that winner
+
+        // create div to display winner
+        const winner = document.createElement("div");
+        winner.className = "winner";
+        winner.id = "winner";
+        winner.innerHTML = `${winnerName} is the winner!`;
+
+        document.getElementsByTagName("body").appendChild(winner);
+
+        console.log([...document.getElementsByTagName("body")][0].children);
+        if (dice.filter(die => die.alt === highScore).length > 1) {
+        }
+      }
+      console.log(Math.max(...dice.map(die => die.alt)));
+    }
   }
+  // find die with top score
+  // if the top score has a tie
+  // if there is a tie, find all ties with top score, display who tied.
+  // if there is no tie, display the winner.
+
+  // console.log(playerScores.indexOf(Math.max(...playerScores)));
 });
 
 document.getElementById("addPlayer").addEventListener("click", () => {
@@ -36,16 +71,16 @@ document.getElementById("addPlayer").addEventListener("click", () => {
   const newDiceNum = document.getElementsByClassName("dice").length + 1;
 
   const newDiv = document.createElement("div");
-  const newPlayerName = document.createElement("div");
-  const newDie = document.createElement("img");
   newDiv.className = `column center`;
   newDiv.id = `die${newDiceNum}Col`;
 
+  const newPlayerName = document.createElement("div");
   newPlayerName.className = "playerName tc";
   newPlayerName.innerText = `Player${newDiceNum}`;
   console.log(document.getElementsByClassName("dice").length + 1);
   newPlayerName.id = `playerName ${newDiceNum}`;
 
+  const newDie = document.createElement("img");
   newDie.className = "dice";
   newDie.id = `die${newDiceNum}`;
   newDie.src = `../dice images/dice${rollDice()}.jpg`;
@@ -75,3 +110,7 @@ document.getElementById("deletePlayer").addEventListener("click", () => {
     window.alert("INVALID SELECTION");
   }
 });
+
+window.onload = () => {
+  console.log(document.getElementById("winner").offsetWidth);
+};

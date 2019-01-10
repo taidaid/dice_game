@@ -13,6 +13,13 @@ body {
   background-color: darkred;
 }
 
+.winner {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  z-index: 1;
+}
+
 .border {
   border-radius: 15px;
   border-style: solid;
