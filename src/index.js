@@ -54,7 +54,11 @@ document.getElementById("banner").addEventListener("click", () => {
       document.body.appendChild(winner);
       // winner.style.marginLeft =
       //   "-" + document.getElementById("winner").offsetWidth / 2;
+
+      // position winner element in center of page
+      // find width of winner element after innerHTML is set and set margin-left to negative of half of that value
       console.log(document.getElementById("winner").offsetWidth);
+      // returns 0 for some reason
 
       // console.log([...document.getElementsByTagName("body")][0].children);
       if (dice.filter(die => die.alt === highScore).length > 1) {
