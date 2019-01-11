@@ -50,7 +50,6 @@ document.getElementById("banner").addEventListener("click", () => {
       winner.className = "winner";
       winner.id = "winner";
       winner.innerHTML = `We have a winner!`;
-      winner.style.visibility = "visible";
       document.body.appendChild(winner);
       // winner.style.marginLeft =
       //   "-" + document.getElementById("winner").offsetWidth / 2;

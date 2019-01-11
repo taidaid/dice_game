@@ -16,7 +16,8 @@ body {
 .winner {
   position: absolute;
   top: 30%;
-  left: 50%;
+  width: 100%;
+  text-align: center;
   z-index: 1;
 }
 
