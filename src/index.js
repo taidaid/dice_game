@@ -22,7 +22,7 @@ const displayWinner = (highScore, players) => {
   if (winnerNames.length > 1) {
     result = "tie";
   }
-
+  // fix grammar for more than 2 people tying for the winner, e.g. 'Player 1, Player 2, and Player 3 tie!'
   winnerDisplay.innerHTML = `${winnerNames.join(" and ")} ${result}!`;
   document.body.appendChild(winnerDisplay);
 };
