@@ -3,13 +3,13 @@ const rollDice = () => Math.floor(Math.random() * 5 + 1);
 document.getElementById("banner").addEventListener("click", () => {
   const dice = [...document.getElementsByClassName("dice")];
 
-  console.log(dice);
+  // console.log(dice);
 
   let i = -1;
   for (let die of dice) {
     const diceRoll = rollDice();
     die.alt = "" + diceRoll;
-    console.log(die);
+    // console.log(die);
 
     switch (diceRoll) {
       case 1:
@@ -34,29 +34,34 @@ document.getElementById("banner").addEventListener("click", () => {
         die.src = `../dice images/dice1.jpg`;
     }
     i++;
+    // on last iteration
     if (i === dice.length - 1) {
+      // find high score
+      const highScore = Math.max(...dice.map(die => die.alt));
+      console.log("high score: " + highScore);
       for (die of dice) {
-        // find high score
-        const highScore = Math.max(...dice.map(die => die.alt));
+        console.log("array of scores: " + [...dice.map(die => die.alt)]);
         // if multiple dice have high score, then return the id of each die
         //  and display all player names as a tie
         // if only one die has high score, then display that winner
-
-        // create div to display winner
-        const winner = document.createElement("div");
-        winner.className = "winner";
-        winner.id = "winner";
-        winner.innerHTML = `${winnerName} is the winner!`;
-
-        document.getElementsByTagName("body").appendChild(winner);
-
-        console.log([...document.getElementsByTagName("body")][0].children);
-        if (dice.filter(die => die.alt === highScore).length > 1) {
-        }
       }
-      console.log(Math.max(...dice.map(die => die.alt)));
+      // create div to display winner
+      const winner = document.createElement("div");
+      winner.className = "winner";
+      winner.id = "winner";
+      winner.innerHTML = `We have a winner!`;
+      winner.style.visibility = "visible";
+      document.body.appendChild(winner);
+      // winner.style.marginLeft =
+      //   "-" + document.getElementById("winner").offsetWidth / 2;
+      console.log(document.getElementById("winner").offsetWidth);
+
+      // console.log([...document.getElementsByTagName("body")][0].children);
+      if (dice.filter(die => die.alt === highScore).length > 1) {
+      }
     }
   }
+
   // find die with top score
   // if the top score has a tie
   // if there is a tie, find all ties with top score, display who tied.
@@ -110,7 +115,3 @@ document.getElementById("deletePlayer").addEventListener("click", () => {
     window.alert("INVALID SELECTION");
   }
 });
-
-window.onload = () => {
-  console.log(document.getElementById("winner").offsetWidth);
-};
