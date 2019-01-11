@@ -1,7 +1,36 @@
 const rollDice = () => Math.floor(Math.random() * 5 + 1);
 
+const displayWinner = (highScore, players) => {
+  // get winners
+  // console.log(players.map(player => player.children[1].alt));
+  // console.log(highScore);
+  const winningPlayers = players.filter(
+    //alter logic to find the players img child by find indexOf 'img' in their children
+    player => player.children[1].alt == highScore
+  );
+  // console.log(winningPlayers);
+  // get winner names
+  const winnerNames = winningPlayers.map(
+    winningPlayer => winningPlayer.textContent
+  );
+  // console.log(winnerNames);
+  // create div to display winner
+  const winnerDisplay = document.createElement("div");
+  winnerDisplay.className = "winner";
+  winnerDisplay.id = "winner";
+  let result = "wins";
+  if (winnerNames.length > 1) {
+    result = "tie";
+  }
+
+  winnerDisplay.innerHTML = `${winnerNames.join(" and ")} ${result}!`;
+  document.body.appendChild(winnerDisplay);
+};
+
 document.getElementById("banner").addEventListener("click", () => {
   const dice = [...document.getElementsByClassName("dice")];
+  const players = [...document.getElementsByClassName("player")];
+  document.body.removeChild(document.getElementById("winner"));
 
   // console.log(dice);
 
@@ -38,30 +67,8 @@ document.getElementById("banner").addEventListener("click", () => {
     if (i === dice.length - 1) {
       // find high score
       const highScore = Math.max(...dice.map(die => die.alt));
-      console.log("high score: " + highScore);
-      for (die of dice) {
-        console.log("array of scores: " + [...dice.map(die => die.alt)]);
-        // if multiple dice have high score, then return the id of each die
-        //  and display all player names as a tie
-        // if only one die has high score, then display that winner
-      }
-      // create div to display winner
-      const winner = document.createElement("div");
-      winner.className = "winner";
-      winner.id = "winner";
-      winner.innerHTML = `We have a winner!`;
-      document.body.appendChild(winner);
-      // winner.style.marginLeft =
-      //   "-" + document.getElementById("winner").offsetWidth / 2;
-
-      // position winner element in center of page
-      // find width of winner element after innerHTML is set and set margin-left to negative of half of that value
-      console.log(document.getElementById("winner").offsetWidth);
-      // returns 0 for some reason
-
-      // console.log([...document.getElementsByTagName("body")][0].children);
-      if (dice.filter(die => die.alt === highScore).length > 1) {
-      }
+      // console.log(players);
+      displayWinner(highScore, players);
     }
   }
 
@@ -74,19 +81,19 @@ document.getElementById("banner").addEventListener("click", () => {
 });
 
 document.getElementById("addPlayer").addEventListener("click", () => {
-  console.log(document.getElementById("game").children[0]);
+  // console.log(document.getElementById("game").children[0]);
 
   const newDiceNum = document.getElementsByClassName("dice").length + 1;
 
   const newDiv = document.createElement("div");
   newDiv.className = `column center`;
-  newDiv.id = `die${newDiceNum}Col`;
+  newDiv.id = `player${newDiceNum}`;
 
   const newPlayerName = document.createElement("div");
   newPlayerName.className = "playerName tc";
-  newPlayerName.innerText = `Player${newDiceNum}`;
+  newPlayerName.innerText = `Player ${newDiceNum}`;
   console.log(document.getElementsByClassName("dice").length + 1);
-  newPlayerName.id = `playerName ${newDiceNum}`;
+  newPlayerName.id = `playerName${newDiceNum}`;
 
   const newDie = document.createElement("img");
   newDie.className = "dice";
@@ -113,7 +120,7 @@ document.getElementById("deletePlayer").addEventListener("click", () => {
     deletedPlayer >= 1 &&
     deletedPlayer <= document.getElementsByClassName("dice").length
   ) {
-    document.getElementById(`die${deletedPlayer}Col`).remove();
+    document.getElementById(`player${deletedPlayer}`).remove();
   } else {
     window.alert("INVALID SELECTION");
   }
