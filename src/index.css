@@ -15,26 +15,29 @@ body {
 
 .winner {
   position: absolute;
-  top: 30%;
+  top: 20%;
   width: 100%;
   text-align: center;
   z-index: 1;
+  font-family: "Marck Script", cursive;
+  font-size: 20vh;
+  color: darkgoldenrod;
 }
 
 .border {
   border-radius: 15px;
   border-style: solid;
-  background-color: lightblue;
 }
 
 #banner {
-  background-color: black;
+  background-image: url(../assets/images/wood.jpg);
+  background-size: cover;
   color: white;
   border-color: black;
 }
 
 #game {
-  background-color: green;
+  background-image: url(http://homesquare.info/wp-content/uploads/2018/02/poker-table-wallpaper-poker-table-home-design-furniture-ormond-beach.jpg);
   flex-wrap: wrap;
 }
 
