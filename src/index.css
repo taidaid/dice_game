@@ -1,93 +1,95 @@
 html {
-  height: 100%;
-  margin: 0;
+	height: 100%;
+	margin: 0;
 }
 
 .pointer {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 body {
-  height: 100%;
-  margin: 0;
-  background-color: darkred;
+	height: 100%;
+	margin: 0;
+	background-color: darkred;
 }
 
 .winner {
-  position: absolute;
-  top: 30%;
-  width: 100%;
-  text-align: center;
-  z-index: 1;
+	position: absolute;
+	top: 30%;
+	width: 100%;
+	text-align: center;
+	z-index: 1;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	font-size: 10vh;
 }
 
 .border {
-  border-radius: 15px;
-  border-style: solid;
-  background-color: lightblue;
+	border-radius: 15px;
+	border-style: solid;
+	background-color: lightblue;
 }
 
 #banner {
-  background-color: black;
-  color: white;
-  border-color: black;
+	background-color: black;
+	color: white;
+	border-color: black;
 }
 
 #game {
-  background-color: green;
-  flex-wrap: wrap;
+	background-color: green;
+	flex-wrap: wrap;
 }
 
 .center {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 .column {
-  display: flex;
+	display: flex;
 
-  flex-flow: column;
+	flex-flow: column;
 }
 
 .flex-row {
-  display: flex;
-  flex-flow: row;
+	display: flex;
+	flex-flow: row;
 }
 
 .align-center {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .grow {
-  flex-basis: 0;
-  flex-grow: 1;
+	flex-basis: 0;
+	flex-grow: 1;
 }
 
 .tc {
-  text-align: center;
+	text-align: center;
 }
 
 .space-around {
-  display: flex;
-  justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
 }
 
 .min-h70 {
-  min-height: 70%;
+	min-height: 70%;
 }
 
 .min-h20 {
-  min-height: 20%;
+	min-height: 20%;
 }
 
 .min-h10 {
-  min-height: 10%;
+	min-height: 10%;
 }
 
 .min-h5 {
-  min-height: 10%;
+	min-height: 10%;
 }
 
 .min-h50 {
-  min-height: 50%;
+	min-height: 50%;
 }
