@@ -1,18 +1,20 @@
 const rollDice = () => Math.floor(Math.random() * 5 + 1);
 
 const displayWinner = (highScore, players) => {
-<<<<<<< HEAD
-	// get winners from players
+	// get winners
+	// console.log(players.map(player => player.children[1].alt));
+	// console.log(players);
+	// console.log(highScore);
+	//alter logic to find the players img child by find indexOf 'img' in their children
 	const winningPlayers = players.filter(
-		//alter logic to find the players img child by find indexOf 'img' in their children
-		player => player.children[1].alt == highScore
+		player => +player.children[0].alt === highScore
 	);
-
+	console.log(winningPlayers);
 	// get winner names
-	const winnerNames = winningPlayers.map(
-		winningPlayer => winningPlayer.textContent
-	);
-
+	const winnerNames = winningPlayers.map(winningPlayer => {
+		return winningPlayer.children[0].id.replace("die", "Player ");
+	});
+	// console.log(winnerNames);
 	// create div to display winner
 	const winnerDisplay = document.createElement("div");
 	winnerDisplay.className = "winner";
@@ -24,33 +26,6 @@ const displayWinner = (highScore, players) => {
 	// fix grammar for more than 2 people tying for the winner, e.g. 'Player 1, Player 2, and Player 3 tie!'
 	winnerDisplay.innerHTML = `${winnerNames.join(" and ")} ${result}!`;
 	document.body.appendChild(winnerDisplay);
-=======
-  // get winners
-  // console.log(players.map(player => player.children[1].alt));
-  // console.log(players);
-  // console.log(highScore);
-  //alter logic to find the players img child by find indexOf 'img' in their children
-  const winningPlayers = players.filter(
-    player => +player.children[0].alt === highScore
-  );
-  console.log(winningPlayers);
-  // get winner names
-  const winnerNames = winningPlayers.map(winningPlayer => {
-    return winningPlayer.children[0].id.replace("die", "Player ");
-  });
-  // console.log(winnerNames);
-  // create div to display winner
-  const winnerDisplay = document.createElement("div");
-  winnerDisplay.className = "winner";
-  winnerDisplay.id = "winner";
-  let result = "wins";
-  if (winnerNames.length > 1) {
-    result = "tie";
-  }
-  // fix grammar for more than 2 people tying for the winner, e.g. 'Player 1, Player 2, and Player 3 tie!'
-  winnerDisplay.innerHTML = `${winnerNames.join(" and ")} ${result}!`;
-  document.body.appendChild(winnerDisplay);
->>>>>>> 5ad4e3e84fdae932181bff6ce2b8708b052a37b9
 };
 
 document.getElementById("banner").addEventListener("click", () => {
@@ -67,28 +42,27 @@ document.getElementById("banner").addEventListener("click", () => {
 		const diceRoll = rollDice();
 		die.alt = "" + diceRoll;
 
-<<<<<<< HEAD
 		switch (diceRoll) {
 			case 1:
-				die.src = `../dice images/dice1.jpg`;
+				die.src = `../assets/images/dice1.jpg`;
 				break;
 			case 2:
-				die.src = `../dice images/dice2.jpg`;
+				die.src = `../assets/images/dice2.jpg`;
 				break;
 			case 3:
-				die.src = `../dice images/dice3.jpg`;
+				die.src = `../assets/images/dice3.jpg`;
 				break;
 			case 4:
-				die.src = `../dice images/dice4.jpg`;
+				die.src = `../assets/images/dice4.jpg`;
 				break;
 			case 5:
-				die.src = `../dice images/dice5.jpg`;
+				die.src = `../assets/images/dice5.jpg`;
 				break;
 			case 6:
-				die.src = `../dice images/dice6.jpg`;
+				die.src = `../assets/images/dice6.jpg`;
 				break;
 			default:
-				die.src = `../dice images/dice1.jpg`;
+				die.src = `../assets/images/dice1.jpg`;
 		}
 		i++;
 		// on last iteration
@@ -99,39 +73,6 @@ document.getElementById("banner").addEventListener("click", () => {
 			displayWinner(highScore, players);
 		}
 	}
-=======
-    switch (diceRoll) {
-      case 1:
-        die.src = `../assets/images/dice1.jpg`;
-        break;
-      case 2:
-        die.src = `../assets/images/dice2.jpg`;
-        break;
-      case 3:
-        die.src = `../assets/images/dice3.jpg`;
-        break;
-      case 4:
-        die.src = `../assets/images/dice4.jpg`;
-        break;
-      case 5:
-        die.src = `../assets/images/dice5.jpg`;
-        break;
-      case 6:
-        die.src = `../assets/images/dice6.jpg`;
-        break;
-      default:
-        die.src = `../assets/images/dice1.jpg`;
-    }
-    i++;
-    // on last iteration
-    if (i === dice.length - 1) {
-      // find high score
-      const highScore = Math.max(...dice.map(die => die.alt));
-      // console.log(players);
-      displayWinner(highScore, players);
-    }
-  }
->>>>>>> 5ad4e3e84fdae932181bff6ce2b8708b052a37b9
 
 	// find die with top score
 	// if the top score has a tie

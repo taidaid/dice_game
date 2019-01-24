@@ -14,58 +14,31 @@ body {
 }
 
 .winner {
-<<<<<<< HEAD
 	position: absolute;
-	top: 30%;
+	top: 20%;
 	width: 100%;
 	text-align: center;
 	z-index: 1;
-	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-	font-size: 10vh;
+	font-family: "Marck Script", cursive;
+	font-size: 20vh;
+	color: darkgoldenrod;
 }
 
 .border {
 	border-radius: 15px;
 	border-style: solid;
-	background-color: lightblue;
 }
 
 #banner {
-	background-color: black;
+	background-image: url(../assets/images/wood.jpg);
+	background-size: cover;
 	color: white;
 	border-color: black;
 }
 
 #game {
-	background-color: green;
+	background-image: url(http://homesquare.info/wp-content/uploads/2018/02/poker-table-wallpaper-poker-table-home-design-furniture-ormond-beach.jpg);
 	flex-wrap: wrap;
-=======
-  position: absolute;
-  top: 20%;
-  width: 100%;
-  text-align: center;
-  z-index: 1;
-  font-family: "Marck Script", cursive;
-  font-size: 20vh;
-  color: darkgoldenrod;
-}
-
-.border {
-  border-radius: 15px;
-  border-style: solid;
-}
-
-#banner {
-  background-image: url(../assets/images/wood.jpg);
-  background-size: cover;
-  color: white;
-  border-color: black;
-}
-
-#game {
-  background-image: url(http://homesquare.info/wp-content/uploads/2018/02/poker-table-wallpaper-poker-table-home-design-furniture-ormond-beach.jpg);
-  flex-wrap: wrap;
->>>>>>> 5ad4e3e84fdae932181bff6ce2b8708b052a37b9
 }
 
 .center {
